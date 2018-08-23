@@ -1,0 +1,24 @@
+const connection = require('./index.js');
+const mongoose = require('mongoose');
+
+const bizSchema = mongoose.Schema({
+  id: { type: String, require: true },
+  name: { type: String, require: true },
+  claimed: { type: Boolean, require: true },
+  rating: { type: Number, require: true },
+  review_count: { type: Number, require: true },
+  price: { type: String, require: true },
+  category: { type: String, require: true },
+  address_street: { type: String, require: true },
+  address_city: { type: String, require: true },
+  address_state: { type: String, require: true },
+  address_zip: { type: String, require: true },
+  address_country: { type: String, require: true },
+  website: { type: String, require: true },
+  email: { type: String, require: true },
+  phone: { type: String, require: true }
+});
+
+const Biz = mongoose.model('Business', bizSchema);
+
+module.exports = Biz;

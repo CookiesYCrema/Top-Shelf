@@ -3,6 +3,7 @@ const path = require('path');
 const parser = require('body-parser');
 const router = require('./router.js');
 const cors = require('cors');
+const newRelic = require('newrelic');
 
 const server = express();
 const port = 3006;
