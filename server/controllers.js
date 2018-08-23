@@ -6,19 +6,28 @@ const Generate = require('./randomNumberGenerators.js');
 
 const controller = {
   get: (req, res) => {
-    console.log('controller.get was called!');
-
-    let business_name = req.query.name;
-
-    Biz.find({ name: business_name }, (error, business) => {
-      if (error) {
-        console.log(error);
+    biz.findAll({limit: 10})
+    .then (bizs => {
+      if (bizs) {
+        res.status(200).send(bizs)
+      } else {
+        res.status(404).send('Not found T_T')
       }
-      else {
-        res.send(business);
-      }
-    });
+    })
+    .catch (err => console.error(err))
   },
+    // console.log('controller.get was called!');
+
+    // let business_name = req.query.name;
+
+    // Biz.find({ name: business_name }, (error, business) => {
+    //   if (error) {
+    //     console.log(error);
+    //   }
+    //   else {
+    //     res.send(business);
+    //   }
+    // });
   post: (req, res) => {
     console.log('controller.post was called!');
   },

@@ -61,7 +61,6 @@ const SearchButton = styled.button`
   border: none;
   border-radius: 3px;
   bottom: 2px;
-
   &:hover {
     background-color: #a92214;
   }
@@ -87,7 +86,6 @@ const SearchBarNavIconWrapper = styled.a`
   padding: 9px;
   vertical-align: middle;
   border-radius: 3px;
-
   &:hover {
     background-color: #a92214;
   }
@@ -105,7 +103,6 @@ const ProfileButton = styled.a`
   height: 36px;
   width: 58px;
   vertical-align: middle;
-
   &:hover {
     background-color: #a92214;
   }
@@ -143,19 +140,19 @@ function BPMH_SearchBar(props) {
         <SearchBarForm>
           <FindBarWrapper className="find-bar-wrapper">
             <FindNearTitle className="find-title">Find</FindNearTitle>
-            <Input name="find-input" placeholder="auto repair, burgers, spas..."/>
+            <Input name="find-input" placeholder="Restaurant names, auto repair, spas..." onChange={props.findInputChange}/>
           </FindBarWrapper>
           <NearBarWrapper className="near-bar-wrapper">
             <FindNearTitle className="near-title">Near</FindNearTitle>
-            <Input name="near-input" placeholder="Current Location"/>
+            <Input name="near-input" placeholder="Current Location / City Name..." onChange={props.nearInputChange}/>
           </NearBarWrapper>
-          <SearchButton className="navButton" type="submit" form="searchBarForm">
+          <SearchButton className="navButton" type="submit" form="searchBarForm" onClick={props.searchBarSubmit}>
             <SearchButtonIcon src="https://s3.us-east-2.amazonaws.com/fecyelptopheader/searchbar/searchIcon.png"/>
           </SearchButton>
         </SearchBarForm>
-        <SearchBarNavIconWrapper className="navButton" href="#" onMouseEnter={props.navHighlighter}><SearchBarNavIcon src="https://s3.us-east-2.amazonaws.com/fecyelptopheader/searchbar/yelpMsg.png"/></SearchBarNavIconWrapper>
-        <SearchBarNavIconWrapper className="navButton" href="#" onMouseEnter={props.navHighlighter}><SearchBarNavIcon src="https://s3.us-east-2.amazonaws.com/fecyelptopheader/searchbar/yelpBell.png"/></SearchBarNavIconWrapper>
-        <ProfileButton className="navButton" href="#" onMouseEnter={props.navHighlighter}>
+        <SearchBarNavIconWrapper className="navButton" href="#" onMouseEnter={() => props.navHighlighter}><SearchBarNavIcon src="https://s3.us-east-2.amazonaws.com/fecyelptopheader/searchbar/yelpMsg.png"/></SearchBarNavIconWrapper>
+        <SearchBarNavIconWrapper className="navButton" href="#" onMouseEnter={() => props.navHighlighter}><SearchBarNavIcon src="https://s3.us-east-2.amazonaws.com/fecyelptopheader/searchbar/yelpBell.png"/></SearchBarNavIconWrapper>
+        <ProfileButton className="navButton" href="#" onMouseEnter={() => props.navHighlighter}>
           <ProfileButtonPhoto src="https://s3.us-east-2.amazonaws.com/fecyelptopheader/searchbar/28488545.jpeg"/>
           <DownArrowWrapper className="down-arrow-wrapper">
             <DownArrowIcon src="https://s3.us-east-2.amazonaws.com/fecyelptopheader/searchbar/downArrow.png"/>
